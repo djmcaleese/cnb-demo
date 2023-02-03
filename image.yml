@@ -1,0 +1,16 @@
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: my-nodejs-app
+  namespace: default
+spec:
+  tag: <registry>/my-nodejs-app                   # Set the image registry to push the app image to
+  serviceAccountName: kpack-service-account
+  builder:
+    name: my-nodejs-builder
+    kind: Builder
+  source:
+    git:
+      url: https://github.com/paketo-buildpacks/samples
+      revision: main
+    subPath: nodejs/npm

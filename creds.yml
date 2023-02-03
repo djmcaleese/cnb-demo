@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dockerhub-credentials
+  annotations:
+    kpack.io/docker: https://index.docker.io/v1/
+type: kubernetes.io/basic-auth
+stringData:
+  username: <username>                            # Replace with your Docker Hub username
+  password: <Docker Hub personal access token>    # Replace with your Docker Hub PAT
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-credentials
+  annotations:
+    kpack.io/git: https://github.com
+type: kubernetes.io/basic-auth
+stringData:
+  username: <username>                            # Replace with your GitHub username
+  password: <GitHub personal access token>        # Replace with your GitHub PAT
+---
